@@ -43,6 +43,7 @@ int menu(){
     printf("[ 1 ] - Novo cadastro\n");
     printf("[ 2 ] - Mostrar cadastros\n");
     printf("[ 3 ] - Calcular duracao\n");
+    printf("[ 4 ] - Calcular valor\n");
     printf("[ 8 ] - Sair\n");
     printf("Opcao: ");
     scanf("%d",&opt);
@@ -67,6 +68,13 @@ int calcularDuracao(TSONECA aux){
 }
 
 
+// Calcular valor da soneca
+float calcularValor(TSONECA aux){
+    return (calcularDuracao(aux) * 0.5);
+}
+
+
+
 // Main
 void main(){
     int opt;
@@ -87,6 +95,10 @@ void main(){
             case 3:
                 printf("\n +++++ Duração da Soneca ++++++\n");
                 printf("A soneca durou %d minutos\n",calcularDuracao(t1));
+            break;
+            case 4:
+                printf("\n ------ Valor da Soneca ------ \n");
+                printf("A soneca custou um valor de R$ %.2f\n",calcularValor(t1));
             break;
             default:
                 printf("\nA implementar\n");
