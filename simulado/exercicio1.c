@@ -35,42 +35,13 @@ void imprimirSoneca(TSONECA aux){
 }
 
 
-//Menu
-int menu(){
-    int opt;
-
-    printf("\n\n\n ------  Aluguel de cabines - Menu  ------\n");
-    printf("[ 1 ] - Novo cadastro\n");
-    printf("[ 2 ] - Mostrar cadastros\n");
-    printf("[ 8 ] - Sair\n");
-    printf("Opcao: ");
-    scanf("%d",&opt);
-
-    return opt;
-}
-
-
 
 // Main
 void main(){
-    int opt;
     TSONECA t1;
 
-    do{
-        opt = menu();
 
-        switch(opt){
-            case 1:
-                t1 = lerSoneca();
-            break;
+    t1 = lerSoneca();
+    imprimirSoneca(t1);
 
-            case 2:
-                printf("\n***** Cadastro 1 *****");
-                imprimirSoneca(t1);
-            break;
-            default:
-                printf("\nA implementar\n");
-            break;
-        }
-    }while(opt != 8);
 }

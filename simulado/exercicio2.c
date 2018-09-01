@@ -35,23 +35,6 @@ void imprimirSoneca(TSONECA aux){
 }
 
 
-//Menu
-int menu(){
-    int opt;
-
-    printf("\n\n\n ------  Aluguel de cabines - Menu  ------\n");
-    printf("[ 1 ] - Novo cadastro\n");
-    printf("[ 2 ] - Mostrar cadastros\n");
-    printf("[ 3 ] - Calcular duracao\n");
-    printf("[ 4 ] - Calcular valor\n");
-    printf("[ 8 ] - Sair\n");
-    printf("Opcao: ");
-    scanf("%d",&opt);
-
-    return opt;
-}
-
-
 // Calculando duração da soneca
 int calcularDuracao(TSONECA aux){
     int t1, t2, duracao;
@@ -68,7 +51,7 @@ int calcularDuracao(TSONECA aux){
 }
 
 
-// Calcular valor da soneca
+// Calcular valor da sonecaCore i5-5200U @ 4x 2.7GHz [63.
 float calcularValor(TSONECA aux){
     return (calcularDuracao(aux) * 0.5);
 }
@@ -80,29 +63,9 @@ void main(){
     int opt;
     TSONECA t1;
 
-    do{
-        opt = menu();
+    t1 = lerSoneca();
+    imprimirSoneca(t1);
+    printf("A soneca durou %d minutos\n",calcularDuracao(t1));
+    printf("A soneca custou um valor de R$ %.2f\n",calcularValor(t1));
 
-        switch(opt){
-            case 1:
-                t1 = lerSoneca();
-            break;
-
-            case 2:
-                printf("\n***** Cadastro 1 *****");
-                imprimirSoneca(t1);
-            break;
-            case 3:
-                printf("\n +++++ Duração da Soneca ++++++\n");
-                printf("A soneca durou %d minutos\n",calcularDuracao(t1));
-            break;
-            case 4:
-                printf("\n ------ Valor da Soneca ------ \n");
-                printf("A soneca custou um valor de R$ %.2f\n",calcularValor(t1));
-            break;
-            default:
-                printf("\nA implementar\n");
-            break;
-        }
-    }while(opt != 8);
 }
