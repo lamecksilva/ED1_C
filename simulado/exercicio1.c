@@ -30,8 +30,8 @@ TSONECA lerSoneca(){
 
 // Imprimindo dados
 void imprimirSoneca(TSONECA aux){
-    printf("\nHora de entrada: %d : %d\n",aux.inHora,aux.inMin);
-    printf("Hora de saida: %d : %d\n", aux.outHora, aux.outMin);
+    printf("\nHora de entrada: %d:%d\n",aux.inHora,aux.inMin);
+    printf("Hora de saida: %d:%d\n", aux.outHora, aux.outMin);
 }
 
 
@@ -40,8 +40,6 @@ void imprimirSoneca(TSONECA aux){
 void main(){
     TSONECA t1;
 
-
     t1 = lerSoneca();
     imprimirSoneca(t1);
-
 }

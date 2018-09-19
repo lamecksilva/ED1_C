@@ -13,14 +13,14 @@ typedef struct {
 TSONECA lerSoneca(){
     TSONECA aux;
 
-    printf("\nDigite a Hora de entrada: ");
+    printf("\nHora de entrada: ");
     scanf("%d",&aux.inHora);
-    printf("Digite o Minuto de entrada: ");
+    printf("Minuto de entrada: ");
     scanf("%d",&aux.inMin);
 
-    printf("Digite a Hora de saida: ");
+    printf("Hora de saida: ");
     scanf("%d",&aux.outHora);
-    printf("Digite o Minuto de saida: ");
+    printf("Minuto de saida: ");
     scanf("%d",&aux.outMin);
 
     return aux;
@@ -57,8 +57,6 @@ void imprimirSoneca(TSONECA aux){
 
 
 void main(){
-    
-    int opt;
     float vTotal = 0;
     int nSonecas;
     

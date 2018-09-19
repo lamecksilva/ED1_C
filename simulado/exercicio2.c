@@ -30,8 +30,8 @@ TSONECA lerSoneca(){
 
 // Imprimindo dados
 void imprimirSoneca(TSONECA aux){
-    printf("\nHora de entrada: %d : %d\n",aux.inHora,aux.inMin);
-    printf("Hora de saida: %d : %d\n", aux.outHora, aux.outMin);
+    printf("\nHora de entrada: %d:%d\n",aux.inHora,aux.inMin);
+    printf("Hora de saida: %d:%d\n", aux.outHora, aux.outMin);
 }
 
 
@@ -51,7 +51,7 @@ int calcularDuracao(TSONECA aux){
 }
 
 
-// Calcular valor da sonecaCore i5-5200U @ 4x 2.7GHz [63.
+// Calcular valor da soneca
 float calcularValor(TSONECA aux){
     return (calcularDuracao(aux) * 0.5);
 }
