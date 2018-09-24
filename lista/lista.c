@@ -9,13 +9,13 @@ typedef struct
 }TREGISTRO;
 
 // Lista encadeada
-
-struct TNO
+struct TNO        // Tipo nó 
 {
   TREGISTRO reg;
   struct TNO *prox;
 };
 
+typedef struct TNO *TLISTA;
 
 
 TREGISTRO LerRegistro()
@@ -34,6 +34,9 @@ TREGISTRO LerRegistro()
   return aux;
 }
 
+
+
+
 void ImprimirRegistro(TREGISTRO pReg)
 {
   printf("\n Chave \t\t : %d \n", pReg.chave);
@@ -43,15 +46,13 @@ void ImprimirRegistro(TREGISTRO pReg)
 
 
 
-
-
-
-typedef struct TNO *TLISTA;
-
 void Inicializar( TLISTA *pLista )
 {
   (*pLista) = NULL;
 }
+
+
+
 
 void InserirInicio(TLISTA *pLista, TREGISTRO pReg)
 {
@@ -69,21 +70,24 @@ void InserirInicio(TLISTA *pLista, TREGISTRO pReg)
   (*pLista) = novo;
 }
 
+
+
+
 void InserirFinal(TLISTA *pLista, TREGISTRO pReg)
-{
-  struct TNO *novo, *aux;
+{ 
+  struct TNO *novo, *aux;       // Cria um node novo e um auxiliar
 
-  novo = (struct TNO *) malloc( sizeof (struct TNO));    
-  novo->reg = pReg;
-  novo->prox = NULL;
+  novo = (struct TNO *) malloc( sizeof (struct TNO));     // Aloca o espaço do novo na memoria ram
+  novo->reg = pReg;     // coloca o registo passado por parametro, no novo node
+  novo->prox = NULL;      // define o novo node como final, pois o proximo é null
 
-  if ( (*pLista) == NULL)
+  if ( (*pLista) == NULL)       // Se o node passado por parametro for null(ultimo da lista)
   {  
-    (*pLista) = novo;
+    (*pLista) = novo;           // O node passado se torna o novo node
   }
   else
   {
-    aux = (*pLista);
+    aux = (*pLista);            // 
     while (aux->prox != NULL)
     {
       aux = aux->prox;
@@ -92,6 +96,8 @@ void InserirFinal(TLISTA *pLista, TREGISTRO pReg)
     aux->prox = novo;
   }
 }
+
+
 
 
 
@@ -111,21 +117,13 @@ void Imprimir(TLISTA pLista)
 
 
 
+
+
 void main()
 {
     TREGISTRO r;
     TLISTA    l; // LinkedList l;
-
     Inicializar(&l);
-    
-    r = LerRegistro();
-    InserirFinal(&l, r);
-
-    r.musicas = 100;
-    InserirFinal(&l, r);
-
-    r.musicas = 200;
-    InserirFinal(&l, r);
 
     Imprimir(l);
 
