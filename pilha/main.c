@@ -146,7 +146,6 @@ void main()
       Inicializar(&p2);
       
       do{
-          
           opcao = Menu();
 
           printf("\n\n");          
