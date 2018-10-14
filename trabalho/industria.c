@@ -40,14 +40,14 @@ void empilhar(TPILHA *p, TERRO erro){
 
 TERRO lerErro(){
   TERRO aux;
-
-  printf("Descrição do erro: ");
-  scanf("%s",&aux.desc);
+  
   printf("Hora do erro: ");
   scanf("%d",&aux.hora);
   printf("Minuto do erro: ");
   scanf("%d",&aux.minuto);
   fflush(stdin);
+  printf("Descrição do erro: ");
+  scanf("%s",&aux.desc);
 
   return aux;
 }
@@ -56,10 +56,11 @@ TERRO lerErro(){
 
 int menu(){
   int opt;
-
+  printf("\n +++++++++++ MENU ++++++++++++\n");
   printf("[ 0 ] Sair\n");
   printf("[ 1 ] Registrar Erro\n");
   printf("[ 2 ] Visualizar Erros\n");
+  printf("[ 3 ] Retirar ultimo erro\n");
   printf("ESCOLHA: ");
   scanf("%d",&opt);
 
@@ -67,8 +68,8 @@ int menu(){
 }
 
 void imprimirReg(TERRO err){
-  printf("Hora do erro [%d:%d]\n",err.hora,err.minuto);
-  printf("Descrição: [%s]",err.desc);
+  printf("\n\nHora do erro [%d:%d]\n",err.hora,err.minuto);
+  printf("Descrição: [%s]\n",err.desc);
 }
 
 void imprimir(TPILHA p){
@@ -76,6 +77,18 @@ void imprimir(TPILHA p){
   for (i = p.topo; i>=0; i--){
     imprimirReg(p.erros[i]);
   }
+}
+
+TERRO desempilhar(TPILHA *p){
+  TERRO aux;
+  if ( !( (*p).topo == -1) ){
+    aux = (*p).erros[ (*p).topo ];
+    (*p).topo--;
+  }else{
+    printf("Não desempilha pilha vazia");
+  }
+
+  return aux;
 }
 
 void main(){
@@ -89,14 +102,26 @@ void main(){
 
     switch(opt){
       case 1:
-        printf("Registrar erro\n");
+        system("clear");
+        printf(" ****** Registrar erro *******\n");
         aux = lerErro();
         empilhar(&pilha, aux);
       break;
 
       case 2:
-        printf("Visualizar erros\n");
+        system("clear");
+        printf("\n =========== Visualizar erros ============\n");
         imprimir(pilha);
+        printf("\n### TODO: SYSYEM PAUSE HERE!!!###\n");
+      break;
+
+      case 3:
+        system("clear");
+        printf("\n ----- Retirar ultimo erro ------");
+        aux = desempilhar(&pilha);
+        printf("\n Erro retirado: ");
+        imprimirReg(aux);
+        printf("\n### TODO: SYSYEM PAUSE HERE!!!###\n");
       break;
 
       default:
